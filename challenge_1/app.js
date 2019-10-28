@@ -29,17 +29,19 @@ $('.box').on("click", function(event){
     //check who's turn and if can play
     if(round % 2 && play) {
         //check if square is empty
-        if(!$(event.target).text().trim().length) {
+        if(!$(event.target).text().length) {
             $(event.target).append('X');
             //switch player turn
             round++;
         }        
     } else {
-        if(!$(event.target).text().trim().length) {
+        if(!$(event.target).text().length) {
             $(event.target).append('O')
             round++;
         }        
-    }    
+    }
+    
+    //check result
     if(winner() !== -1 && winner() !== '') {
         if(winner() === 'X') {
             play = false;
@@ -48,6 +50,9 @@ $('.box').on("click", function(event){
             play = false;
             alert('Winner is O')
         }
+    } else if(winner() === -1) {
+        play = false;
+        alert('Tie');
     }
 });    
 
