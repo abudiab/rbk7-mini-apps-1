@@ -15,7 +15,7 @@ $('#submit').on('click', function() {
     $.ajax({
         url: '/upload_json',
         type: 'POST',
-        data: jsonData,
+        data: {jsonData: jsonData},
         success: function() {
             console.log('sent from client');
         },
@@ -28,13 +28,14 @@ $('#submit').on('click', function() {
     $.ajax({
         url: '/upload_json',
         type: 'GET',
-        data: csvData, //change this
-        success: function() {
-            console.log('received to client');
+        data: { order: '-createdAt' }, //change this/ maybe put it in sucess?
+        success: function(result) {
+            console.log('received to client', result);
+            $('#txtarea2').val(result); //fix me
         },
         
-        error: function() {
-            console.log('error not received to client');
+        error: function(err) {
+            console.log('error not received to client', err);
         }
         
     });

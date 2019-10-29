@@ -8,6 +8,14 @@
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
+
+  <style>
+      .btn {
+          margin: 10px;
+      }
+
+  </style>
+
     <title>CSV Report Generator</title>
 </head>
 <body>
@@ -16,14 +24,19 @@
             
             <input type="submit" value="Submit">
         </form> -->
+        
         <div id="container">
             <h2>CSV Report Generator</h2>
             <textarea id="txtarea" cols="30" rows="10" placeholder="Enter JSON heres"></textarea>
             <div>
                 
-                <button id="submit">Submit</button>
+                <button class="btn" id="submit">Submit</button>
             </div>
             
+        </div>
+
+        <div id="container2">
+            <textarea id="txtarea2" cols="30" rows="10" placeholder="Converted / CSV"></textarea>
         </div>
 
         <script src="app.js"></script>

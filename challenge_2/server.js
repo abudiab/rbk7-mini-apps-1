@@ -18,12 +18,13 @@ var converted = 'herya csv'; //change this
 
 app.get('/upload_json', function (req, res) {
     console.log(converted);
-    // res.send(converted);
+    res.send(converted); //send converted data
 });
 
 app.post('/upload_json', function (req, res) {
-    console.log(req.body);
+    console.log(req.body.jsonData);
 //    res.send(received);
+//call convert func
 });
 
 app.listen(3000, function(){
