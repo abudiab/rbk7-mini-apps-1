@@ -16,16 +16,27 @@ $('#submit').on('click', function() {
         url: '/upload_json',
         type: 'POST',
         data: jsonData,
-        success: console.log('sent from client'),
-        error: console.log('error not sent from client')
+        success: function() {
+            console.log('sent from client');
+        },
+        error: function(err) {
+            console.log('error not sent from client', err);
+        }
+        
     });
 
     $.ajax({
         url: '/upload_json',
         type: 'GET',
         data: csvData, //change this
-        success: console.log('received to client'),
-        error: console.log('error not received to client')
+        success: function() {
+            console.log('received to client');
+        },
+        
+        error: function() {
+            console.log('error not received to client');
+        }
+        
     });
 
 });
